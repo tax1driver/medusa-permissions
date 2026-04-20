@@ -47,8 +47,6 @@ export default defineMiddlewares({
       method: "GET",
       middlewares: [
         validateAndTransformQuery(ListRolesQuerySchema, { defaults: ["id", "name", "description", "color", "priority", "created_at", "updated_at"], isList: true }),
-        withTargetRoleContext,
-        ...withGlobalQueryPermission("admin.permissions.roles.list", "/admin/permissions/roles"),
       ],
     },
     {
@@ -56,9 +54,6 @@ export default defineMiddlewares({
       method: "POST",
       middlewares: [
         validateAndTransformBody(CreateRoleSchema),
-        withTargetRoleContext,
-        withTargetRoleCreateHierarchyContext,
-        ...withGlobalMutatePermission("admin.permissions.roles.create", "/admin/permissions/roles"),
       ],
     },
     {
@@ -66,21 +61,12 @@ export default defineMiddlewares({
       method: "POST",
       middlewares: [
         validateAndTransformBody(UpdateRoleSchema),
-        withPermissionsResourceIdContext,
-        withTargetRoleContext,
-        withTargetRoleHierarchyContext,
-        ...withGlobalMutatePermission("admin.permissions.roles.update", "/admin/permissions/roles/:id"),
       ],
     },
     {
       matcher: "/admin/permissions/roles/:id",
       method: "DELETE",
-      middlewares: [
-        withPermissionsResourceIdContext,
-        withTargetRoleContext,
-        withTargetRoleHierarchyContext,
-        ...withGlobalMutatePermission("admin.permissions.roles.delete", "/admin/permissions/roles/:id"),
-      ],
+      middlewares: [],
     },
 
 
@@ -90,9 +76,6 @@ export default defineMiddlewares({
       method: "GET",
       middlewares: [
         validateAndTransformQuery(ListPermissionsQuerySchema, { defaults: ["id", "permission", "action", "priority", "param_set", "role_id", "created_at"], isList: true }),
-        withTargetRoleContext,
-        withPermsisionContext,
-        ...withGlobalQueryPermission("admin.permissions.permissions.list", "/admin/permissions/permissions"),
       ],
     },
     {
@@ -100,10 +83,6 @@ export default defineMiddlewares({
       method: "POST",
       middlewares: [
         validateAndTransformBody(CreatePermissionSchema),
-        withTargetRoleContext,
-        withTargetRoleHierarchyContext,
-        withPermsisionContext,
-        ...withGlobalMutatePermission("admin.permissions.permissions.create", "/admin/permissions/permissions"),
       ],
     },
     {
@@ -111,54 +90,12 @@ export default defineMiddlewares({
       method: "POST",
       middlewares: [
         validateAndTransformBody(UpdatePermissionSchema),
-        withPermissionsResourceIdContext,
-        withTargetRoleContext,
-        withPermsisionContext,
-        withTargetPermissionRoleHierarchyContext,
-        ...withGlobalMutatePermission("admin.permissions.permissions.update", "/admin/permissions/permissions/:id"),
       ],
     },
     {
       matcher: "/admin/permissions/permissions/:id",
       method: "DELETE",
-      middlewares: [
-        withPermissionsResourceIdContext,
-        withTargetRoleContext,
-        withPermsisionContext,
-        withTargetPermissionRoleHierarchyContext,
-        ...withGlobalMutatePermission("admin.permissions.permissions.delete", "/admin/permissions/permissions/:id"),
-      ],
-    },
-    {
-      matcher: "/admin/permissions/permissions/bulk",
-      method: "POST",
-      middlewares: [
-        validateAndTransformBody(BulkCreatePermissionsSchema),
-        withTargetRoleContext,
-        withPermsisionContext,
-        ...withGlobalMutatePermission("admin.permissions.permissions.bulk_create", "/admin/permissions/permissions/bulk"),
-      ],
-    },
-    {
-      matcher: "/admin/permissions/permissions/bulk-delete",
-      method: "POST",
-      middlewares: [
-        validateAndTransformBody(BulkDeletePermissionsSchema),
-        withTargetRoleContext,
-        withPermsisionContext,
-        ...withGlobalMutatePermission("admin.permissions.permissions.bulk_delete", "/admin/permissions/permissions/bulk-delete"),
-      ],
-    },
-    {
-      matcher: "/admin/permissions/roles/:id/permissions/sync",
-      method: "POST",
-      middlewares: [
-        validateAndTransformBody(SyncPermissionsSchema),
-        withPermissionsResourceIdContext,
-        withTargetRoleContext,
-        withTargetRoleHierarchyContext,
-        ...withGlobalMutatePermission("admin.permissions.roles.sync_permissions", "/admin/permissions/roles/:id/permissions/sync"),
-      ],
+      middlewares: [],
     },
 
     // Assignments
@@ -167,7 +104,6 @@ export default defineMiddlewares({
       method: "GET",
       middlewares: [
         validateAndTransformQuery(ListActorsQuerySchema, {}),
-        ...withGlobalQueryPermission("admin.permissions.actors.list", "/admin/permissions/actors/:actorType"),
       ],
     },
     {
@@ -175,8 +111,6 @@ export default defineMiddlewares({
       method: "POST",
       middlewares: [
         validateAndTransformBody(UpdateActorRolesSchema),
-        withPermissionsResourceIdContext,
-        ...withGlobalMutatePermission("admin.permissions.actors.update_roles", "/admin/permissions/actors/:actorType/:actorId/roles"),
       ],
     },
     {
@@ -184,9 +118,6 @@ export default defineMiddlewares({
       method: "GET",
       middlewares: [
         validateAndTransformQuery(ListRoleActorsQuerySchema, {}),
-        withPermissionsResourceIdContext,
-        withTargetRoleHierarchyContext,
-        ...withGlobalQueryPermission("admin.permissions.roles.list_actors", "/admin/permissions/roles/:id/actors"),
       ],
     },
     {
@@ -194,7 +125,6 @@ export default defineMiddlewares({
       method: "POST",
       middlewares: [
         validateAndTransformBody(ValidatePermissionSchema),
-        ...withGlobalMutatePermission("admin.permissions.validate.execute", "/admin/permissions/validate"),
       ],
     },
     {
@@ -216,7 +146,6 @@ export default defineMiddlewares({
           ],
           isList: true,
         }),
-        ...withGlobalQueryPermission("admin.permissions.audit_logs.list", "/admin/permissions/audit-logs"),
       ],
     },
   ],
