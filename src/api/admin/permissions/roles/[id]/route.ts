@@ -3,10 +3,7 @@ import { PERMISSIONS_MODULE } from "../../../../../modules/permissions"
 import PermissionsService from "../../../../../modules/permissions/service"
 import type { UpdateRoleInput } from "../../../../validation/permissions/schemas"
 
-/**
- * GET /admin/permissions/roles/:id
- * Get a single role with permissions
- */
+
 export async function GET(
     req: MedusaRequest,
     res: MedusaResponse
@@ -25,10 +22,7 @@ export async function GET(
     res.json({ role })
 }
 
-/**
- * POST /admin/permissions/roles/:id
- * Update a role
- */
+
 export async function POST(
     req: MedusaRequest<UpdateRoleInput>,
     res: MedusaResponse
@@ -50,10 +44,7 @@ export async function POST(
     res.json({ role })
 }
 
-/**
- * DELETE /admin/permissions/roles/:id
- * Delete a role
- */
+
 export async function DELETE(
     req: MedusaRequest,
     res: MedusaResponse

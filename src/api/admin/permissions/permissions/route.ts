@@ -3,10 +3,7 @@ import { PERMISSIONS_MODULE } from "../../../../modules/permissions"
 import PermissionsService from "../../../../modules/permissions/service"
 import type { CreatePermissionInput, ListPermissionsQuery } from "../../../validation/permissions/schemas"
 
-/**
- * GET /admin/permissions/permissions
- * List permissions with optional filters
- */
+
 export async function GET(
     req: MedusaRequest<ListPermissionsQuery>,
     res: MedusaResponse
@@ -33,10 +30,7 @@ export async function GET(
     })
 }
 
-/**
- * POST /admin/permissions/permissions
- * Create a permission
- */
+
 export async function POST(
     req: MedusaRequest<CreatePermissionInput>,
     res: MedusaResponse

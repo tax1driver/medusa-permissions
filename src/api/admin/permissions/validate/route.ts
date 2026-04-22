@@ -2,10 +2,6 @@ import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import type { ValidatePermissionInput } from "../../../validation/permissions/schemas"
 import { validatePermissionWorkflow } from "../../../../workflows/permissions"
 
-/**
- * POST /admin/permissions/validate
- * Test a permission decision for a specific actor and context.
- */
 export async function POST(
     req: MedusaRequest<ValidatePermissionInput>,
     res: MedusaResponse

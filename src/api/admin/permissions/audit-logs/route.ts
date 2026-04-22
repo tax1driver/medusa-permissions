@@ -39,10 +39,6 @@ const toActorLabel = (actor: {
     return fullName || actor.email || actor.id
 }
 
-/**
- * GET /admin/permissions/audit-logs
- * List permission validation audit log entries
- */
 export async function GET(
     req: MedusaRequest<ListPermissionAuditLogsQuery>,
     res: MedusaResponse

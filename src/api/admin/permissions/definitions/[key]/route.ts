@@ -2,10 +2,7 @@ import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { PERMISSIONS_MODULE } from "../../../../../modules/permissions"
 import PermissionsService from "../../../../../modules/permissions/service"
 
-/**
- * GET /admin/permissions/definitions/:key
- * Get a single permission definition by key
- */
+
 export async function GET(
     req: MedusaRequest,
     res: MedusaResponse

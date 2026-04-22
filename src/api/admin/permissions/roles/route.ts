@@ -6,10 +6,7 @@ import RbacRoleUserLink from "../../../../links/rbacrole-user"
 import RbacRoleCustomerLink from "../../../../links/rbacrole-customer"
 import type { CreateRoleInput, ListRolesQuery } from "../../../validation/permissions/schemas"
 
-/**
- * GET /admin/permissions/roles
- * List all RBAC roles
- */
+
 export async function GET(
     req: MedusaRequest<ListRolesQuery>,
     res: MedusaResponse
@@ -95,10 +92,6 @@ export async function GET(
     })
 }
 
-/**
- * POST /admin/permissions/roles
- * Create a new RBAC role
- */
 export async function POST(
     req: MedusaRequest<CreateRoleInput>,
     res: MedusaResponse

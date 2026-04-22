@@ -3,10 +3,7 @@ import { PERMISSIONS_MODULE } from "../../../../../modules/permissions"
 import PermissionsService from "../../../../../modules/permissions/service"
 import type { UpdatePermissionInput } from "../../../../validation/permissions/schemas"
 
-/**
- * POST /admin/permissions/permissions/:id
- * Update a permission (role_id cannot be changed)
- */
+
 export async function POST(
     req: MedusaRequest<UpdatePermissionInput>,
     res: MedusaResponse
@@ -28,10 +25,6 @@ export async function POST(
     res.json({ permission: updated })
 }
 
-/**
- * DELETE /admin/permissions/permissions/:id
- * Delete a permission
- */
 export async function DELETE(
     req: MedusaRequest,
     res: MedusaResponse
