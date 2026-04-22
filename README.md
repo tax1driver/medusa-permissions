@@ -274,7 +274,7 @@ export default defineMiddlewares({
 });
 ```
 
-For admin API parity, you can also apply route-scoped global field controls with built-in helpers such as `withGlobalQueryPermission(...)` and `withGlobalMutatePermission(...)` (see admin permissions middleware implementation).
+For admin API parity, you can also apply route-scoped global field controls with built-in helpers such as `withGlobalQueryPermission(...)` and `withGlobalMutatePermission(...)`. These middlewares use `admin.api.query`, `admin.api.mutate`. Additionally, using `admin.api.partial` allows you to define field-level permissions where denied fields are automatically filtered from the request.
 
 ## Built-in extensions
 The Permissions module comes with several built-in extensions that provide common functionality out of the box. These include:
