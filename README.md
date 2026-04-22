@@ -289,45 +289,6 @@ The Permissions module comes with several built-in extensions that provide commo
 
 You can extend existing built-in keys by re-registering the same permission key with additional params, which merges parameter definitions instead of forcing a full fork of the original permission registry.
 
-
-## Caching
-To optimize performance, the Permissions module implements caching for permission evaluations. When a permission check is performed, the module caches the result based on the actor, permission key, and relevant parameters. Subsequent checks for the same combination will return the cached result, reducing the need for repeated evaluations.
-
-### Cache Configuration
-To use caching, CachingModule must be enabled in the Medusa project.
-```ts
-{
-  resolve: "@medusajs/medusa/caching",
-  options: {
-    providers: [
-      {
-        resolve: "@medusajs/caching-redis",
-        id: "caching-redis",
-        is_default: true,
-        options: {
-          redisUrl: process.env.CACHE_REDIS_URL,
-        },
-      },
-    ],
-  },
-}
-```
-
-The CachingModule's feature flag needs to be enabled as well:
-
-*in .env file:*
-```
-MEDUSA_FF_CACHING=true
-```
-or
-
-*in medusa-config.ts:*
-```ts
-featureFlags: {
-  caching: true,
-}
-```
-
 ## Contributing
 Contributions are welcome! If you have an idea for a new feature, improvement, or bug fix, please open an issue or submit a pull request.
 
