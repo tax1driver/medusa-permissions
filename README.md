@@ -173,11 +173,6 @@ Audit logs are **enabled** by default. To disable audit logging, set `enable_aud
 }
 ```
 
-### Plugin Defaults
-By default, the plugin automatically creates a `Superuser` role during setup using a migration.
-
-This role is seeded with a global wildcard allow rule (`*`), which grants full access.
-
 ## Advanced Usage
 The Permissions module is designed to be highly extensible, allowing you to customize various aspects of the access control. Below are some examples of advanced usage scenarios:
 
