@@ -1,12 +1,16 @@
 {
     "name": "medusa-permissions",
     "version": "1.0.2",
-    "description": "A starter for Medusa plugins.",
-    "author": "Medusa (https://medusajs.com)",
+    "description": "A Medusa plugin for managing permissions and access control in a Medusa application.",
+    "author": "tax1driver",
     "license": "MIT",
     "files": [
         ".medusa/server"
     ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tax1driver/medusa-permissions.git"
+    },
     "exports": {
         "./package.json": "./package.json",
         "./workflows": "./.medusa/server/src/workflows/index.js",
