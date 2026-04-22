@@ -1,6 +1,6 @@
 {
     "name": "medusa-permissions",
-    "version": "0.0.775",
+    "version": "1.0.1",
     "description": "A starter for Medusa plugins.",
     "author": "Medusa (https://medusajs.com)",
     "license": "MIT",
@@ -34,6 +34,10 @@
         "medusa",
         "plugin",
         "medusa-plugin-other",
+        "medusa-plugin-rbac",
+        "rbac",
+        "permissions",
+        "abac",
         "medusa-plugin",
         "medusa-v2"
     ],

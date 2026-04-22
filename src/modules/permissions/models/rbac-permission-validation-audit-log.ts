@@ -10,7 +10,7 @@ export const RBACPermissionValidationAuditLog = model.define("rbac_permission_va
     decision: model.enum(["allow", "deny", "none"]).default("none"),
     allowed: model.boolean().default(false),
 
-    matched_rule_id: model.text().nullable(),
+    matched_rule_id: model.text().nullable(), // soft relation, in order to avoid performance drop with potentially large number of audit log entries
     matched_role_id: model.text().nullable(),
     matched_action: model.text().nullable(),
     matched_priority: model.number().nullable(),
