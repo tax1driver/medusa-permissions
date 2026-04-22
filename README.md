@@ -85,8 +85,6 @@ Run migrations afterwards to create the necessary database tables:
 npx medusa db:migrate
 ```
 
-The migrations are seeded with a default `Superuser` role that has a global wildcard allow rule (`*`), granting full access.
-
 ### Middlewares
 To enforce permissions on the base Medusa Admin API and Permission Module API routes, add the built-in middlewares to `src/api/middlewares.ts`:
 
@@ -104,7 +102,7 @@ export default defineMiddlewares({
 > [!IMPORTANT]
 > Please note that defining the middlewares before assigning a role to an admin user will effectively lock you out of the system, as no permissions will be granted to any user. In order to resolve this issue:
 > 
-> Configure the module with the actor providers and permissions, start the application, assign the `Superuser` role to an admin user, and only then add the middlewares to the project. 
+> Configure the module with the actor providers and permissions, start the application, create a role allowing all permissions to an admin user, and only then add the middlewares to the project. 
 
 In order to define custom permission middlewares for your own module APIs and understand the permission context and parameter behavior, refer to the [Advanced Usage](#advanced-usage) section below.
 
